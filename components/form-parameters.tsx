@@ -4,56 +4,32 @@ import React from 'react'
 
 export default function FormParameters() {
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const data = Object.fromEntries(form.entries());
-    console.log("Datos:", data);
+  const handleSubmit = (formData: FormData) => {
+
+    const query = formData.get("nombre")
+    const email = formData.get("email")
+
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form action={handleSubmit}>
+      <div className='w-full bg-[var(--soft-green)] p-2 rounded-md'>
+        <p className='text-[var(--dark-green)] font-bold text-center text-md'>Parámetros corporales</p>
+      </div>
+      <div className='flex justify-between'>
+        <div className='bg-[var(--soft-gray)] px-4 py-2 rounded-lg flex-1'>
+          <p className='text-[var(--dark-green)] text-center'>Hombre</p>
+          <input type='checkbox' className='hidden' />
+        </div>
+        <div className='bg-[var(--soft-gray)] px-4 py-2 rounded-lg flex-1'>
+          <p className='text-[var(--dark-green)] text-center'>Mujer</p>
+        </div>
+      </div>
       <div className='w-full bg-amber-300'>
         <input name="nombre" placeholder="Nombre" />
       </div>
       <input name="email" placeholder="Email" type="email" />
-      <div className='flex gap-4'>
-        <input
-          id="mujer"
-          type="radio"
-          value="mujer"
-          className="hidden peer"
-        />
-        <label htmlFor="mujer" className='cursor-pointer 
-          px-4 py-2 
-          rounded 
-          justify-center
-          items-center
-          text-center
-          bg-gray-200 
-          peer-checked:bg-blue-500 
-          peer-checked:text-white flex-1'>
-          Mujer
-        </label>
 
-        <input
-          id="hombre"
-          type="radio"
-          value="hombre"
-          className="hidden peer"
-        />
-        <label htmlFor="hombre" className='cursor-pointer 
-          px-4 py-2 
-          rounded 
-          justify-center
-          items-center
-          text-center
-          bg-gray-200 
-          peer-checked:bg-blue-500 
-          peer-checked:text-white flex-1'>
-          Hombre
-        </label>
-      </div>
 
       <button type="submit">Enviar</button>
     </form>

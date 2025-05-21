@@ -3,9 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --soft-gray-background: #e0e7e7;
-  --dark-green-background: #06363a;
-  --soft-green-backround: #aeddc8;
+  --soft-gray: #e0e7e7;
+  --dark-green: #06363a;
+  --soft-green: #aeddc8;
 }
 
 @theme inline {
@@ -25,5 +25,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins';
 }
